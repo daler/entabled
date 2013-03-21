@@ -54,6 +54,12 @@ def rst2html(rst, header_level=3):
 
 class DESeqResultsParser(object):
     def __init__(self, results_file):
+        """
+        Assumes you've saved your data in R like this::
+
+            write.table(res, file='results.txt', sep='\\t', row.names=FALSE)
+
+        """
         self.results_file = results_file
 
     def parse(self, limit=None):
