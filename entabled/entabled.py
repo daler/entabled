@@ -196,8 +196,6 @@ class DataTableCreator(object):
             if not os.path.exists(subdir):
                 os.makedirs(subdir)
             cmds = 'cp %s %s' % (source, dest)
-            print cmds
-
             os.system(cmds)
 
 
