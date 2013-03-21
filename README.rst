@@ -36,7 +36,7 @@ have accordion-foldable min/max text input for filtering.  `above_text_rst` and
 `below_text_rst` will be converted to HTML and inserted above and below the
 table respectively::
 
-    >>> t = DataTableCreator(
+    >>> t = entabled.DataTableCreator(
     ... data,
     ... header,
     ... minmax=['baseMeanA', 'baseMeanB', 'log2FoldChange', 'padj'],
