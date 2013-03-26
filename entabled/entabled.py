@@ -148,6 +148,11 @@ class DataTableCreator(object):
 
         :param html:
             Name of the actual HTML file.
+
+        :param additional_css:
+            If not None, a filename of additional CSS that will be included
+            last (so that entries here will override others in the built-in
+            CSS)
         """
 
         files_to_copy = []
@@ -162,7 +167,7 @@ class DataTableCreator(object):
 
         if additional_css:
             additional_css_dest = os.path.join(
-                outdir, os.path.basename(additional_css))
+                outdir, 'static', 'css', os.path.basename(additional_css))
             files_to_copy.append(
                 (
                     additional_css,
@@ -179,7 +184,7 @@ class DataTableCreator(object):
 
             additional_css_string = (
                 '<link rel="stylesheet" type="text/css" href="%s">'
-                % additional_css_dest)
+                % os.path.relpath(additional_css_dest, start=outdir))
 
         self.context['additional_css'] = additional_css_string
 
